@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: silver;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+form {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="date"],
+button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: blue;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightblue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table Header */
+th {
+    padding: 8px;
+    background-color: black;
+    border: 1px solid #ddd;
+    color: #fff;
+}
+
+td {
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+
+
+/* Task Status */
+.completed {
+    color: green;
+}
+
+.not-completed {
+    color: red;
+}
+
+/* Action Links */
+.complete-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.delete-link {
+    color: red;
+    text-decoration: none;
+}
+

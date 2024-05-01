@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Task Tracker</h1>
@@ -18,20 +19,39 @@
         <input type="date" id="due_date" name="due_date" required><br>
         <button type="submit">Add Task</button>
     </form>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                <strong>{{ task.title }}</strong><br>
-                {{ task.description }}<br>
-                Due Date: {{ task.due_date.strftime('%Y-%m-%d') }}<br>
-                {% if task.completed %}
-                    <span style="color: green;">Completed</span>
-                {% else %}
-                    <a href="/complete_task/{{ task._id }}">Mark as Completed</a>
-                {% endif %}
-                | <a href="/delete_task/{{ task._id }}" style="color: red;">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.due_date.strftime('%Y-%m-%d') }}</td>
+                    <td>
+                        {% if task.completed %}
+                            <span class="completed">Completed</span>
+                        {% else %}
+                            <span class="not-completed">Not Completed</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if not task.completed %}
+                            <a href="/complete_task/{{ task._id }}" class="complete-link">Mark as Completed</a>
+                        {% endif %}
+                        <a href="/delete_task/{{ task._id }}" class="delete-link">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
 </body>
 </html>
