@@ -4,6 +4,8 @@ from datetime import datetime
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+
+# Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 db = client['task_tracker']
 tasks_collection = db['tasks']
@@ -13,6 +15,7 @@ def index():
     tasks = list(tasks_collection.find({}))
     return render_template('index.html', tasks=tasks)
 
+# Add a task 
 @app.route('/add_task', methods=['POST'])
 def add_task():
     title = request.form['title']
@@ -22,16 +25,19 @@ def add_task():
     tasks_collection.insert_one(task)
     return redirect(url_for('index'))
 
+# Mark a task as completed.
 @app.route('/complete_task/<task_id>')
 def complete_task(task_id):
     tasks_collection.update_one({'_id': ObjectId(task_id)}, {'$set': {'completed': True}})
     return redirect(url_for('index'))
 
+# Mark a task as incomplete.
 @app.route('/incomplete_task/<task_id>')
 def incomplete_task(task_id):
     tasks_collection.update_one({'_id': ObjectId(task_id)}, {'$set': {'completed': False}})
     return redirect(url_for('index'))
 
+# Delete a task 
 @app.route('/delete_task/<task_id>')
 def delete_task(task_id):
     tasks_collection.delete_one({'_id': ObjectId(task_id)})
