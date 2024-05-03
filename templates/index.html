@@ -1,5 +1,3 @@
-<!-- templates/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +43,8 @@
                     <td>
                         {% if not task.completed %}
                             <a href="/complete_task/{{ task._id }}" class="complete-link">Mark as Completed</a>
+                        {% else %}
+                            <a href="/incomplete_task/{{ task._id }}" class="complete-link">Mark as Incomplete</a>
                         {% endif %}
                         <a href="/delete_task/{{ task._id }}" class="delete-link">Delete</a>
                     </td>

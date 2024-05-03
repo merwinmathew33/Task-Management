@@ -27,6 +27,11 @@ def complete_task(task_id):
     tasks_collection.update_one({'_id': ObjectId(task_id)}, {'$set': {'completed': True}})
     return redirect(url_for('index'))
 
+@app.route('/incomplete_task/<task_id>')
+def incomplete_task(task_id):
+    tasks_collection.update_one({'_id': ObjectId(task_id)}, {'$set': {'completed': False}})
+    return redirect(url_for('index'))
+
 @app.route('/delete_task/<task_id>')
 def delete_task(task_id):
     tasks_collection.delete_one({'_id': ObjectId(task_id)})

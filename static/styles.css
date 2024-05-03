@@ -9,8 +9,8 @@ h1 {
 }
 
 form {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 label {
@@ -37,7 +37,7 @@ button {
 }
 
 button:hover {
-    background-color: lightblue;
+    background-color: red;
 }
 
 table {
@@ -45,7 +45,6 @@ table {
     border-collapse: collapse;
 }
 
-/* Table Header */
 th {
     padding: 8px;
     background-color: black;
@@ -56,12 +55,12 @@ th {
 td {
     padding: 8px;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 
 
-/* Task Status */
+
 .completed {
     color: green;
 }
@@ -70,9 +69,9 @@ td {
     color: red;
 }
 
-/* Action Links */
+
 .complete-link {
-    color: #007bff;
+    color: blue;
     text-decoration: none;
     margin-right: 10px;
 }
