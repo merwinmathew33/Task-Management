@@ -61,21 +61,21 @@ td {
 
 
 
+/* Task Status Styles */
 .completed {
     color: green;
 }
-
 .not-completed {
     color: red;
 }
 
 
+/* Action Link Styles */
 .complete-link {
     color: blue;
     text-decoration: none;
     margin-right: 10px;
 }
-
 .delete-link {
     color: red;
     text-decoration: none;
